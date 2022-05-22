@@ -22,8 +22,14 @@ import typing
 
 import aiohttp
 from aiohttp.helpers import sentinel
+
+
+file = open("token.txt")
+a = file.readline()
+file.close()
 storage= MemoryStorage()
 Bot = aiogram.Bot
+bot = Bot(a)
 dp = aiogram.Dispatcher(bot, storage=storage)
 
 select_subjects_keyboard_add =  InlineKeyboardMarkup(row_width=1).add(
